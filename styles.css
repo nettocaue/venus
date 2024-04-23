@@ -1,0 +1,25 @@
+@import url("Styles/header.css");
+@import url("Styles/carrossel.css");
+@import url("Styles/rodape.css");
+@import url("Styles/clientes.css");
+@import url("Styles/newsLetter.css");
+
+
+:root {
+    --cor-de-fundo: #E8EFCF;
+    --fonte-rodape: #091E42;
+    --preto: black;
+    --branco: white;
+    --borda-carrossel: #DCDFE4;
+    --fonte-precoAntigo: #8590A2;
+    --cor-botao: #F9A826;
+    --cor-hover: #DE9520;
+    --fonte-principal: "Poppins";
+    
+}
+
+body {
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+}
