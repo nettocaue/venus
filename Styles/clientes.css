@@ -54,3 +54,30 @@
     display: flex;
     flex-direction: column;
 }
+
+@media screen and (max-width: 950px) {
+    .clientes-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .clientes-container_item {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+    .clientes-item {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .clientes-container_item {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        justify-items: center;
+    }
+}

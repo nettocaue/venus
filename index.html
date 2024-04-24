@@ -12,25 +12,40 @@
 </head>
 <body>
     <section class="inicio">
-        <header class="cabecalho">
-            <img src="Assets/titulo.png" alt="Logo da Vênus Cosméticos" class="container__imagem">
+        <header>
+            <nav class="nav-bar">
+            <div class="logo">
+                <img src="Assets/titulo.png" >
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Categorias</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+                </ul>
+            </div>
+            <div class="container-icons">
+                <a href="#" class="container-icons__link">
+                    <img src="Assets/pesquisa.png" alt="Pesquisa de produtos" class="container__imagem">
+                </a>
+                <a href="#" class="container-icons__link">
+                    <img src="Assets/carrinho.png" alt="Carrinho de compras" class="container__imagem">
+                </a>
+            </div>
 
-            <ul class="lista-cabecalho"> 
-                <li class="lista-cabecalho__item">
-                    <a href="#" class="lista-cabecalho__link">Home</a>
-                </li>
-                <li class="lista-cabecalho__item">
-                    <a href="#" class="lista-cabecalho__link">Produtos</a>
-                </li>
-                <li class="lista-cabecalho__item">
-                    <a href="#" class="lista-cabecalho__link">Categorias</a>
-                </li>
-                <li class="lista-cabecalho__item">
-                    <a href="#" class="lista-cabecalho__link">Sobre</a>
-                </li>
-                <li class="lista-cabecalho__item">
-                    <a href="#" class="lista-cabecalho__link">Contatos</a>
-                </li>
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()"><img class="icon" src="Assets/menu.png" alt=""></button>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Categorias</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
             </ul>
 
             <div class="container-icons">
@@ -41,10 +56,12 @@
                     <img src="Assets/carrinho.png" alt="Carrinho de compras" class="container__imagem">
                 </a>
             </div>
+
+        </div>
         </header>
         <div class="bloco-conteudo">
-            <img src="Assets/tituloHeader.png" alt="Texto revele sua beleza divina">
-            <img src="Assets/img.png" alt="Imagem de maqueador">
+            <img src="Assets/tituloHeader.png" class="img-titulo-header" alt="Texto revele sua beleza divina">
+            <img src="Assets/img.png" class="img-maqueador-header" alt="Imagem de maqueador">
         </div>
     </section>
     <main class="corpo-site">
@@ -291,5 +308,6 @@
             </ul>
            </div>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>

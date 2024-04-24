@@ -24,7 +24,7 @@
 
 .newsletter-container_conteudo {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items:end;
     gap: 150px;
     margin-bottom: 50px;

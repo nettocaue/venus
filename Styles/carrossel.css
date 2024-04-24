@@ -70,3 +70,26 @@
     background-color: var(--cor-hover);
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 950px) {
+    .carrossel-container {
+        padding: 1.5rem 1rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        justify-items: center;
+    }
+
+    .carrossel-item {
+        gap: 20px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .carrossel-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+    }
+}
