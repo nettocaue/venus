@@ -62,3 +62,13 @@
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+
+@media screen and (max-width: 950px) {
+    .newsletter-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .img-NewsLetter {
+        display: none;
+    }
+}

@@ -12,7 +12,8 @@
 }
 
 .rodape-bloco__texto img {
-    width: 20%;
+    max-width: 100px;
+    width: 100%;
 }
 
 h2 {
@@ -35,4 +36,12 @@ h2 {
 
 .rodape-colunas {
     padding: 40px;
+}
+
+@media screen and (max-width: 950px) {
+    .rodape {
+        padding: 1.5rem 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
 }
