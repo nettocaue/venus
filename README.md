@@ -17,8 +17,8 @@ Derivada da palavra venustidade e baseada na Deusa grega Afrodite, a "Venus Cos
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [ ] Adicionar slide na aba produtos.
-- [ ] Trazer melhorias em responsividade.
+- [x] Adicionar slide na aba produtos.
+- [x] Trazer melhorias em responsividade.
 
 ----
 
