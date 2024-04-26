@@ -71,4 +71,7 @@
     .img-NewsLetter {
         display: none;
     }
+    .newsletter-email {
+        width: 60%;
+    }
 }
