@@ -29,18 +29,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Função de validação de email
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('newsletter-form');
-    const emailInput = document.getElementById('email');
-    const emailError = document.getElementById('email-error');
+    const formModal = document.getElementById('newsletter-modal');
+    const formSection = document.getElementById('newsletter-section');
 
-    form.addEventListener('submit', function(event) {
+    const emailInputModal = document.getElementById('email-newsletter-modal');
+    const emailInputSection = document.getElementById('email-newsletter-section');
+
+    const emailErrorModal = document.getElementById('email-error-newsletter-modal');
+    const emailErrorSection = document.getElementById('email-error-newsletter-section');
+
+    formModal.addEventListener('submit', function(event) {
         event.preventDefault();
-        if (!isValidEmail(emailInput.value)) {
-            emailError.textContent = 'Por favor, insira um e-mail válido.';
+        if (!isValidEmail(emailInputModal.value)) {
+            emailErrorModal.textContent = 'Por favor, insira um e-mail válido.';
             return;
         }
         
-        emailError.textContent = ''; 
+        emailErrorModal.textContent = ''; 
+        alert('E-mail cadastrado com sucesso')
+        modal.style.display = 'none';
+    });
+
+    formSection.addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (!isValidEmail(emailInputSection.value)) {
+            emailErrorSection.textContent = 'Por favor, insira um e-mail válido.';
+            return;
+        }
+        
+        emailErrorSection.textContent = ''; 
+        emailInputSection.value = '';
         alert('E-mail cadastrado com sucesso')
         modal.style.display = 'none';
     });

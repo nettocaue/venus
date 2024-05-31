@@ -49,6 +49,12 @@
 .newsletter-search {
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+#email-error-newsletter-section {
+    position: absolute;
+    top: 40px;
 }
 
 .newsletter-search_button {

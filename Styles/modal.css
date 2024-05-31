@@ -52,7 +52,7 @@ form {
     gap: 5px;
 }
 
-form input {
+.modal form input {
     width: 70%;
     background-color: transparent;
     border: 1px solid #B7B7B7;
@@ -62,7 +62,7 @@ form input {
     outline: none;
 }
 
-form button {
+.modal form button {
     width: 30%;
     background-color: var(--cor-botao);
     color: var(--branco);

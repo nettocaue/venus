@@ -72,12 +72,12 @@
                 <h2>Inscreva-se na nossa newsLetter </h2>
                 <p>Fique atualizado sobre as últimas novidades da Vênus</p>
 
-                <form id="newsletter-form">
-                    <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
+                <form id="newsletter-modal">
+                    <input type="email" id="email-newsletter-modal" name="email" placeholder="Seu melhor e-mail" required>
                     <button type="submit">Enviar</button>
                 </form>
                 
-                <div id="email-error" class="error-message"></div>
+                <div id="email-error-newsletter-modal" class="error-message"></div>
             </div>
         </div>
 
@@ -278,10 +278,11 @@
                     <img src="Assets/tituloNewsLetter.png" alt="foto Título NewsLetter" class="img-tituloNewsLetter">
                     <p>Receba atualizações semanais sobre nossos novos produtos, diretamente na sua caixa de correio. <br><span> Inscreva-se agora!</span></p>
                 </div>
-            </div>
-            <div class="newsletter-search">
-                <input type="search" class="newsletter-email" placeholder="Endereço de E-mail">
+            </div>            
+            <form id="newsletter-section" class="newsletter-search">
+                <input type="email" id="email-newsletter-section" name="email-newsletter-section" class="newsletter-email" placeholder="Endereço de E-mail">
                 <button class="newsletter-search_button">Inscreva-se</button>
+                <div id="email-error-newsletter-section" class="error-message"></div>
             </div>
         </section>
     </main>
