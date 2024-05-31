@@ -1,5 +1,6 @@
 .swiper {
     padding: 30px;
+    z-index: 0;
 }
 
 .carrossel-titulo {
