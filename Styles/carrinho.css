@@ -1,0 +1,31 @@
+h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+#carrinho-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 120px;
+}
+
+.produto-item {
+    border: 1px solid #cecece;
+    display: flex;
+    flex-direction: row;
+}
+
+.produto-item img {
+    max-width: 100px;
+    width: 100%;
+}
+
+.produto-detalhes {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

@@ -81,3 +81,73 @@ function menuShow() {
         document.querySelector('.icon').src = "../Assets/close.png";
     }
 }
+
+// Adiciona itens ao carrinho de compras
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+    addToCartButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            const produtoDiv = event.target.closest('.item-slide');
+            const produtoId = produtoDiv.getAttribute('data-id');
+            const produtoNome = produtoDiv.querySelector('h3').textContent;
+            const imagem = produtoDiv.querySelector('img').src;
+            const produtoPreco = parseFloat(produtoDiv.querySelector('p').textContent.replace('R$', ''));
+
+            adicionarAoCarrinho(produtoId, produtoNome, produtoPreco, imagem);
+        });
+    });
+
+    function adicionarAoCarrinho(id, nome, preco, imagem) {
+        let carrinho = localStorage.getItem('carrinho');
+        carrinho = carrinho ? JSON.parse(carrinho) : [];
+
+        const itemExistente = carrinho.find(item => item.id === id);
+        if (itemExistente) {
+            itemExistente.quantidade++;
+        } else {
+            carrinho.push({ id, nome, preco, quantidade: 1, img: imagem });
+        }
+
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    }
+});
+
+// Renderiza itens do carrinho de compras
+document.addEventListener('DOMContentLoaded', function() {
+    const carrinhoItemsUl = document.getElementById('carrinho-items');
+    
+    renderizarCarrinho();
+
+    function renderizarCarrinho() {
+        carrinhoItemsUl.innerHTML = '';
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        console.log(carrinho)
+
+        carrinho.forEach(function(item) {
+            const li = document.createElement('li');
+
+            const divProduto = document.createElement('div');
+            divProduto.classList.add('produto-item');
+
+            const imgProduto = document.createElement('img');
+            imgProduto.src = item.img;
+            imgProduto.alt = item.nome;
+            imgProduto.classList.add('produto-imagem');
+            divProduto.appendChild(imgProduto);
+
+            const detalhesProduto = document.createElement('div');
+            detalhesProduto.classList.add('produto-detalhes');
+            detalhesProduto.innerHTML = `
+                <p class="produto-nome">${item.nome}</p>
+                <p class="produto-quantidade">Quantidade: ${item.quantidade}</p>
+                <p class="produto-preco">Preço: R$ ${item.preco.toFixed(2)}</p>
+            `;
+            divProduto.appendChild(detalhesProduto);
+
+            li.appendChild(divProduto);
+            carrinhoItemsUl.appendChild(li);
+        });
+    }
+});
