@@ -1,3 +1,14 @@
+// Função para exibição de alerta
+function exibirNotificacao(mensagem, tipo) {
+    if (tipo === 'success') {
+        alert("Sucesso: " + mensagem);
+    } else if (tipo === 'error') {
+        alert("Erro: " + mensagem);
+    } else {
+        alert(mensagem);
+    }
+}
+
 // Função para mudar o title do site quando o usuário estiver em outra aba
 document.addEventListener("visibilitychange", function() {
     if (document.visibilityState === 'hidden') {
@@ -46,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         emailErrorModal.textContent = ''; 
-        alert('E-mail cadastrado com sucesso')
+        exibirNotificacao("E-mail cadastrado com sucesso!", 'success');
         modal.style.display = 'none';
     });
 
@@ -59,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         emailErrorSection.textContent = ''; 
         emailInputSection.value = '';
-        alert('E-mail cadastrado com sucesso')
+        exibirNotificacao("E-mail cadastrado com sucesso!", 'success');
         modal.style.display = 'none';
     });
 
@@ -105,8 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const itemExistente = carrinho.find(item => item.id === id);
         if (itemExistente) {
             itemExistente.quantidade++;
+            exibirNotificacao("Produto adicionado ao carrinho com sucesso!", 'success');
         } else {
             carrinho.push({ id, nome, preco, quantidade: 1, img: imagem });
+            exibirNotificacao("Produto adicionado ao carrinho com sucesso!", 'success');
         }
 
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
@@ -166,6 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             carrinho.splice(index, 1);
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
             renderizarCarrinho();
+            exibirNotificacao("Produto removido do carrinho com sucesso!", 'success');
         }
     }
 });
