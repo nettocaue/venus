@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const itemExistente = carrinho.find(item => item.id === id);
         if (itemExistente) {
             itemExistente.quantidade++;
+            itemExistente.preco += preco; 
             exibirNotificacao("Produto adicionado ao carrinho com sucesso!", 'success');
         } else {
             carrinho.push({ id, nome, preco, quantidade: 1, img: imagem });
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
             detalhesProduto.innerHTML = `
                 <p class="produto-nome">${item.nome}</p>
                 <p class="produto-quantidade">Quantidade: ${item.quantidade}</p>
-                <p class="produto-preco">Preço: R$ ${item.preco.toFixed(2)}</p>
+                <p class="produto-preco">Preço: R$ ${item.preco}</p>
             `;
             divProduto.appendChild(detalhesProduto);
 
