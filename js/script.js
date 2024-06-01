@@ -123,8 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
         carrinhoItemsUl.innerHTML = '';
         const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-        console.log(carrinho)
-
         carrinho.forEach(function(item) {
             const li = document.createElement('li');
 
@@ -146,8 +144,28 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             divProduto.appendChild(detalhesProduto);
 
+            // Botão para remover item do carrinho
+            const btnRemover = document.createElement('button');
+            btnRemover.textContent = 'Remover';
+            btnRemover.classList.add('remover-item-btn');
+            btnRemover.addEventListener('click', function() {
+                removerDoCarrinho(item.id);
+            });
+            divProduto.appendChild(btnRemover);
+
             li.appendChild(divProduto);
             carrinhoItemsUl.appendChild(li);
         });
+    }
+
+    // Função para remover um item do carrinho
+    function removerDoCarrinho(id) {
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const index = carrinho.findIndex(item => item.id === id);
+        if (index !== -1) {
+            carrinho.splice(index, 1);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            renderizarCarrinho();
+        }
     }
 });
