@@ -1,5 +1,10 @@
+.container_carrinho {
+    background-color: var(--cor-de-fundo);
+    height: 100vh;
+}
+
 h2#title-carrinho {
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
 }
 
@@ -11,7 +16,9 @@ h2#title-carrinho {
 }
 
 .produto-item {
-    border: 1px solid #cecece;
+    border: 2px solid var(--preto);
+    border-radius: 8px;
+    background-color: var(--branco);
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -38,7 +45,8 @@ button.remover-item-btn {
     font-size: 16px;
     padding: 10px 20px;
     border-radius: 20px;
-    background-color: red;
+    background-color: var(--cor-botao);
+    font-family: var(--fonte-principal);
 }
 
 button.remover-item-btn:hover {
