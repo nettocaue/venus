@@ -14,6 +14,9 @@ document.addEventListener("visibilitychange", function() {
     if (document.visibilityState === 'hidden') {
         document.title = "🛍️ Volte para suas compras";
     }
+    else if (window.location.href.includes("carrinho")) {
+        document.title = "Carrinho de compras";
+    }
     else {
         document.title = "Venus Cosméticos";
     }
