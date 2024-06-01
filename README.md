@@ -15,10 +15,16 @@ Derivada da palavra venustidade e baseada na Deusa grega Afrodite, a "Venus Cos
 
 ## ⚙️ Ajustes e melhorias:
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+O projeto continua em desenvolvimento, as últimas modificações e funcionalidades adicionadas, são:
 
-- [x] Adicionar slide na aba produtos.
-- [x] Trazer melhorias em responsividade.
+- [x] Adiciona script que verifica se o usuário está ou não na página.
+- [x] Adiciona modal Newsletter.
+- [x] Validação de e-mail da Newsletter.
+- [x] Adiciona itens ao carrinho de compras.
+- [x] Ao clicar no carrinho de comprar, redireciona para os itens dentro do carrinho.
+- [x] Remover itens carrinho de compra.
+- [x] Função para exibição dos alertas.
+- [x] Ajustar titulo da tela.
 
 ----
 
