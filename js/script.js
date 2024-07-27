@@ -98,35 +98,46 @@ function menuShow() {
 
 // Adiciona itens ao carrinho de compras
 document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    if (window.fetchProdutos) {
+        window.fetchProdutos(() => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
 
-    addToCartButtons.forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            const produtoDiv = event.target.closest('.item-slide');
-            const produtoId = produtoDiv.getAttribute('data-id');
-            const produtoNome = produtoDiv.querySelector('h3').textContent;
-            const imagem = produtoDiv.querySelector('img').src;
-            const produtoPreco = parseFloat(produtoDiv.querySelector('p').textContent.replace('R$', ''));
+            addToCartButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    const produtoDiv = event.target.closest('.item-slide');
+                    if (!produtoDiv) {
+                        console.error('Produto não encontrado');
+                        return;
+                    }
 
-            adicionarAoCarrinho(produtoId, produtoNome, produtoPreco, imagem);
+                    const produtoId = produtoDiv.getAttribute('data-id');
+                    const produtoNome = produtoDiv.querySelector('h3').textContent;
+                    const imagem = produtoDiv.querySelector('img').src;
+                    const produtoPreco = parseFloat(produtoDiv.querySelector('p').textContent.replace('R$', '').replace(',', '.'));
+
+                    adicionarAoCarrinho(produtoId, produtoNome, produtoPreco, imagem);
+                });
+            });
+
+            function adicionarAoCarrinho(id, nome, preco, imagem) {
+                let carrinho = localStorage.getItem('carrinho');
+                carrinho = carrinho ? JSON.parse(carrinho) : [];
+
+                const itemExistente = carrinho.find(item => item.id === id);
+                if (itemExistente) {
+                    itemExistente.quantidade++;
+                    itemExistente.preco = itemExistente.preco + preco;
+                    exibirNotificacao("Produto adicionado ao carrinho com sucesso!", 'success');
+                } else {
+                    carrinho.push({ id, nome, preco, quantidade: 1, img: imagem });
+                    exibirNotificacao("Produto adicionado ao carrinho com sucesso!", 'success');
+                }
+
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            }
         });
-    });
-
-    function adicionarAoCarrinho(id, nome, preco, imagem) {
-        let carrinho = localStorage.getItem('carrinho');
-        carrinho = carrinho ? JSON.parse(carrinho) : [];
-
-        const itemExistente = carrinho.find(item => item.id === id);
-        if (itemExistente) {
-            itemExistente.quantidade++;
-            itemExistente.preco += preco; 
-            exibirNotificacao("Produto adicionado ao carrinho com sucesso!", 'success');
-        } else {
-            carrinho.push({ id, nome, preco, quantidade: 1, img: imagem });
-            exibirNotificacao("Produto adicionado ao carrinho com sucesso!", 'success');
-        }
-
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    } else {
+        console.error('Função fetchProdutos não encontrada.');
     }
 });
 
