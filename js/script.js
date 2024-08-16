@@ -1,4 +1,3 @@
-// Função para exibição de alerta
 function exibirNotificacao(mensagem, tipo) {
     if (tipo === 'success') {
         alert("Sucesso: " + mensagem);
@@ -9,7 +8,6 @@ function exibirNotificacao(mensagem, tipo) {
     }
 }
 
-// Função para mudar o title do site quando o usuário estiver em outra aba
 document.addEventListener("visibilitychange", function() {
     if (document.visibilityState === 'hidden') {
         document.title = "🛍️ Volte para suas compras";
@@ -22,9 +20,8 @@ document.addEventListener("visibilitychange", function() {
     }
 });
 
-// Função para exibir ou remover a visualização do modal de newsletter
 document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
+    function showModal() {
         var modal = document.getElementById('modal');
         modal.style.display = 'flex';
 
@@ -38,10 +35,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 modal.style.display = 'none';
             }
         }
-    }, 2000); 
+    }
+
+    if (!sessionStorage.getItem('modalShown')) {
+        setTimeout(function() {
+            showModal();
+            sessionStorage.setItem('modalShown', 'true');
+        }, 2000);
+    }
 });
 
-// Função de validação de email
 document.addEventListener('DOMContentLoaded', function() {
     const formModal = document.getElementById('newsletter-modal');
     const formSection = document.getElementById('newsletter-section');
@@ -96,7 +99,6 @@ function menuShow() {
     }
 }
 
-// Adiciona itens ao carrinho de compras
 document.addEventListener('DOMContentLoaded', function() {
     if (window.fetchProdutos) {
         window.fetchProdutos(() => {
@@ -141,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Renderiza itens do carrinho de compras
 document.addEventListener('DOMContentLoaded', function() {
     const carrinhoItemsUl = document.getElementById('carrinho-items');
     
@@ -172,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             divProduto.appendChild(detalhesProduto);
 
-            // Botão para remover item do carrinho
             const btnRemover = document.createElement('button');
             btnRemover.textContent = 'Remover';
             btnRemover.classList.add('remover-item-btn');
@@ -186,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Função para remover um item do carrinho
     function removerDoCarrinho(id) {
         let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
         const index = carrinho.findIndex(item => item.id === id);
